@@ -1,0 +1,21 @@
+<div class="col-xs-6 col-md-4">
+    <div class="thumbnail">
+        <%= image_tag(@post.picture_url) if @post.picture? %>
+    </div>
+    <div class="caption">
+      
+      <p><%= @post.content %></p>
+    </div> 
+    <tr>
+      <td><%= link_to '修改', edit_post_path(@post) %></td>
+      <td><%= link_to '删除', @post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr> 
+    </div> 
+<br>
+ 人感谢 | 
+ 人评论 | 
+<%= link_to '标签' %>
+<br> ---
+
+
+<br> ---

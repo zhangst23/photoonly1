@@ -1,0 +1,37 @@
+ 
+  <div class="container board"> 
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-md-7">          
+          <%= image_tag (post.picture_url) if post.picture? %>
+          <br>
+        </div>
+        <div class="col-md-3"> 
+          <%= link_to '更多内容', post_path(post)  %>
+          <br>
+          <tr>
+            <td>人感谢 | </td>
+            <td>人评论 | </td>
+            <td><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('. ') %></td>
+          </tr>      
+            <p><%= post.content %></p> 
+            <br>
+            ---
+            <div class="comment">
+              
+            </div>
+        </div>     
+      <% end %>
+      <br>
+    </div>
+
+  </div>
+
+
+
+
+
+        
+
+ 
+
