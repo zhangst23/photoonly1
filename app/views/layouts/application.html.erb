@@ -28,7 +28,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/posts">首页 <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">标签</a></li>
         <li class="btn-info right"><%= link_to '上传绝版照片', new_post_path(@post) %></li>
       </ul>
 
@@ -44,24 +43,15 @@
 </nav>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <%= yield %>
-    </div>
-  </div>
+<div class="pinterest">
+  <%= yield %>
 </div>
 
 <footer>
-<div class="container">
+<div class="container center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-    <%= link_to '关于我们' %>
-    <%= link_to '关于我们' %>
-    <%= link_to '关于我们' %>
-    <%= link_to '关于我们' %>
-    <br>
-    @ 2016 绝版照片
+    反馈邮箱 : 2243980491 | 2016 绝版照片
     </div>
   </div>
 </div>

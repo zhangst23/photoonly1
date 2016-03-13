@@ -1,28 +1,45 @@
- 
-  <div class="container board"> 
+  <div class="container"> 
     <div class="row">
-      <% @posts.each do |post| %>
-        <div class="col-md-7">          
-          <%= image_tag (post.picture_url) if post.picture? %>
-          <br>
-        </div>
-        <div class="col-md-3"> 
-          <%= link_to '更多内容', post_path(post)  %>
-          <br>
-          <tr>
-            <td>人感谢 | </td>
-            <td>人评论 | </td>
-            <td><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('. ') %></td>
-          </tr>      
-            <p><%= post.content %></p> 
-            <br>
-            ---
-            <div class="comment">
-              
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">标签云</div>
+          <div class="panel-body">
+            <div id="tag_cloud">
+              <% tag_cloud(@tags, %w(s m l)) do |tag, css_class| %>
+                <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+              <% end %>
             </div>
-        </div>     
-      <% end %>
-      <br>
+          </div>
+        </div>          
+      </div>
+      
+      <div class="col-md-9">
+        <div class="container">
+          <div class="row">
+            <% @posts.each do |post| %>  
+              <div class="col-md-7">                         
+                  <%= image_tag (post.picture_url) if post.picture? %>
+                <br>
+              </div>
+              <div class="col-md-2"> 
+                <%= link_to '更多', post_path(post)  %>
+                <br>
+                <tr>
+                  <td>人感谢 | </td>
+                  <td>人评论 | </td>
+                  <td>标签: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('. ') %></td>
+                </tr>      
+                  <br>
+                  ---
+                  <div class="comment">
+                    
+                  </div>
+              </div>     
+            <% end %>
+            <br>
+          </div>
+        </div>  
+      </div>
     </div>
 
   </div>
