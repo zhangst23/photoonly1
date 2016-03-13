@@ -27,6 +27,7 @@
                 <tr>
                   <td>人感谢 | </td>
                   <td>人评论 | </td>
+                  <br>
                   <td>标签: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('. ') %></td>
                 </tr>      
                   <br>
