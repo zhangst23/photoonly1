@@ -1,11 +1,21 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :tag_cloud
 
   def tag_cloud
     @tags = Post.tag_counts_on(:tags).order('count desc').limit(20)
   end
 
+  def upvote
+    @post.upvote_from current_user
+    redirect_to posts_path
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to posts_path
+  end
 
 
 

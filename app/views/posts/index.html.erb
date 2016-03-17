@@ -24,19 +24,28 @@
                 <br>
               </div>
               <div class="col-md-3"> 
-                <%= link_to '更多', post_path(post)  %>
+                <div class="caption">
+                  <%= link_to like_post_path(post), class: "like", method: :put do %>
+                    <button class="btn btn-info" type="button" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+                      <span class="badge"><%= post.get_upvotes.size %></span>
+                    </button>
+                  <% end %>
+                  <%= link_to unlike_post_path(post), class: "like", method: :put do %>
+                    <button class="btn btn-info" type="button" aria-label="Left Align">
+                      <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+                      <span class="badge"><%= post.get_downvotes.size %></span>
+                    </button>
+                  <% end %>
+                </div>
                 <br>
-                <tr>
-                  <td>人感谢 | </td>
-                  <td>人评论 | </td>
-                  <br>
-                  <td>标签: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('. ') %></td>
-                </tr>      
-                  <br>
-                  ---
-                  <div class="comment">
+                <%= link_to '更多', post_path(post), class: "btn btn-success" %>
+                 标签: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('. ') %>
+                 评论数: ?    
+                <br>
+                <div class="comment">
                     
-                  </div>
+                </div>
               </div>     
             <% end %>
             <br>
