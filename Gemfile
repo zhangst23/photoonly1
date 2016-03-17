@@ -23,21 +23,21 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
+gem 'devise'
 
 
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
-
+# 上传图片
 gem 'carrierwave'
 gem 'mini_magick'
 
 # 没有成功的分享，可以采取百度前端JS分享组件
 gem 'social-share-button'
-
+# 标签
 gem 'acts-as-taggable-on', '~> 3.4'
-
-
+# 点赞
+gem 'acts_as_votable'
 
 
 
